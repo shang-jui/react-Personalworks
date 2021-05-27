@@ -42,8 +42,8 @@
     -->
   </body>
 
-  <script>
-    TPDirect.setupSDK('12348', 'app_pa1pQcKoY22IlnSXq5m5WP5jFKzoRG58VEXpT7wU62ud7mMbDOGzCYIlzzLF', 'sandbox')
+  <!-- <script>
+    // TPDirect.setupSDK('12348', 'app_pa1pQcKoY22IlnSXq5m5WP5jFKzoRG58VEXpT7wU62ud7mMbDOGzCYIlzzLF', 'sandbox')
 
     // 把 TapPay 內建輸入卡號的表單給植入到 div 中
     // TPDirect.card.setup({
@@ -106,33 +106,33 @@
     //   console.log('1')
     //   onSubmit(event)
     // })
-    let prime
-    function onSubmit(event) {
-      event.preventDefault()
+    // let prime
+    // function onSubmit(event) {
+    //   event.preventDefault()
 
-      // 取得 TapPay Fields 的 status
-      const tappayStatus = TPDirect.card.getTappayFieldsStatus()
+    //   // 取得 TapPay Fields 的 status
+    //   const tappayStatus = TPDirect.card.getTappayFieldsStatus()
 
-      // 確認是否可以 getPrime
-      if (tappayStatus.canGetPrime === false) {
-        alert('信用卡資訊填寫錯誤')
-        return
-      }
+    //   // 確認是否可以 getPrime
+    //   if (tappayStatus.canGetPrime === false) {
+    //     alert('信用卡資訊填寫錯誤')
+    //     return
+    //   }
 
-      // Get prime
-      TPDirect.card.getPrime((result) => {
-        if (result.status !== 0) {
-          alert('傳送失敗')
-          return
-        }
-        // alert('get prime 成功，prime: ' + result.card.prime)
-        prime = result.card.prime
-        console.log(`成功!prime=${prime}`)
-        // send prime to your server, to pay with Pay by Prime API .
-        // Pay By Prime Docs: https://docs.tappaysdk.com/tutorial/zh/back.html#pay-by-prime-api
-        // prepareOrder(prime)
-        // checkout(order, getCheckout)
-      })
-    }
-  </script>
+    //   // Get prime
+    //   TPDirect.card.getPrime((result) => {
+    //     if (result.status !== 0) {
+    //       alert('傳送失敗')
+    //       return
+    //     }
+    //     // alert('get prime 成功，prime: ' + result.card.prime)
+    //     prime = result.card.prime
+    //     console.log(`成功!prime=${prime}`)
+    //     // send prime to your server, to pay with Pay by Prime API .
+    //     // Pay By Prime Docs: https://docs.tappaysdk.com/tutorial/zh/back.html#pay-by-prime-api
+    //     // prepareOrder(prime)
+    //     // checkout(order, getCheckout)
+    //   })
+    // }
+  </script> -->
 </html>
