@@ -1,0 +1,41 @@
+.contact {
+  max-width: 1200px;
+  margin: 120px auto 30px;
+  background-color: white;
+  padding-top: 10px;
+  .title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #4c4948;
+    img {
+      position: relative;
+      top: -20px;
+      width: 30%;
+    }
+  }
+  .contact-content {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    .block-left {
+      margin-right: 50px;
+      span {
+        display: inline-block;
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+    }
+    .block-right {
+      a {
+        margin-left: 10px;
+        cursor: pointer;
+        color: red;
+      }
+      p {
+        padding: 5px 15px;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}

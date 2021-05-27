@@ -1,0 +1,129 @@
+.main-blog {
+  max-width: 1200px;
+  margin: 120px auto 30px;
+  background-color: white;
+  padding-top: 10px;
+  .title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #4c4948;
+    img {
+      position: relative;
+      top: -20px;
+      width: 30%;
+    }
+  }
+  .main-content {
+    display: flex;
+    align-items: start;
+    .main-button {
+      width: 150px;
+      border: 1px solid #4c4948;
+      margin-left: 50px;
+      .main-button-top {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        align-items: center;
+        p {
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .plus {
+          background-image: url(../../img/blog-plus.png);
+          width: 20px;
+          height: 20px;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        .cut {
+          background-image: url(../../img/blog-cut.png);
+          width: 20px;
+          height: 20px;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        &:hover {
+          background: #e0d6c3;
+        }
+      }
+      &:hover .plus {
+        display: none;
+      }
+      &:hover ol {
+        display: block;
+      }
+      ol {
+        display: none;
+        li {
+          padding: 10px;
+          text-decoration: none;
+          color: #4c4948;
+          font-size: 20px;
+          font-weight: bold;
+          cursor: pointer;
+          &:hover {
+            background-color: #e0d6c3;
+          }
+        }
+      }
+    }
+  }
+  .main-article {
+    padding: 20px;
+    ul {
+      max-width: 900px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      li {
+        max-width: 400px;
+        padding: 10px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        position: relative;
+        h3 {
+          display: inline;
+          font-size: 20px;
+          border: 1px solid black;
+          text-align: center;
+          padding: 5px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          background-color: #e0d6c3;
+        }
+        .main-article-content {
+          display: flex;
+          img {
+            max-width: 200px;
+            max-height: 150px;
+            outline: 1px solid;
+          }
+          .text {
+            position: relative;
+            p:nth-child(1) {
+              padding: 5px;
+              font-size: 18px;
+              font-weight: bold;
+            }
+            p:nth-child(2) {
+              padding: 5px;
+              font-size: 12px;
+            }
+            a {
+              color: black;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.off {
+  display: none;
+}
