@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/react-personalworks/static/css/main.889e4e52.chunk.css",
+    "main.js": "/react-personalworks/static/js/main.a24b9659.chunk.js",
+    "main.js.map": "/react-personalworks/static/js/main.a24b9659.chunk.js.map",
+    "runtime-main.js": "/react-personalworks/static/js/runtime-main.e50b65d4.js",
+    "runtime-main.js.map": "/react-personalworks/static/js/runtime-main.e50b65d4.js.map",
+    "static/css/2.2cd63fd4.chunk.css": "/react-personalworks/static/css/2.2cd63fd4.chunk.css",
+    "static/js/2.99760f0d.chunk.js": "/react-personalworks/static/js/2.99760f0d.chunk.js",
+    "static/js/2.99760f0d.chunk.js.map": "/react-personalworks/static/js/2.99760f0d.chunk.js.map",
+    "static/js/3.881df625.chunk.js": "/react-personalworks/static/js/3.881df625.chunk.js",
+    "static/js/3.881df625.chunk.js.map": "/react-personalworks/static/js/3.881df625.chunk.js.map",
+    "index.html": "/react-personalworks/index.html",
+    "static/css/2.2cd63fd4.chunk.css.map": "/react-personalworks/static/css/2.2cd63fd4.chunk.css.map",
+    "static/css/main.889e4e52.chunk.css.map": "/react-personalworks/static/css/main.889e4e52.chunk.css.map",
+    "static/js/2.99760f0d.chunk.js.LICENSE.txt": "/react-personalworks/static/js/2.99760f0d.chunk.js.LICENSE.txt",
+    "static/media/Header.scoped.scss": "/react-personalworks/static/media/backgroumd.a73e37e3.png",
+    "static/media/iconfinder_v-33_3162613.e1b86df8.png": "/react-personalworks/static/media/iconfinder_v-33_3162613.e1b86df8.png",
+    "static/media/Index.scss": "/react-personalworks/static/media/index-5.71c35324.png",
+    "static/media/index-7.058659b0.png": "/react-personalworks/static/media/index-7.058659b0.png",
+    "static/media/index-8.89292d86.png": "/react-personalworks/static/media/index-8.89292d86.png",
+    "static/media/news-1.4530a272.png": "/react-personalworks/static/media/news-1.4530a272.png",
+    "static/media/news-2.46186567.jpg": "/react-personalworks/static/media/news-2.46186567.jpg",
+    "static/media/news-3.65440f58.jpg": "/react-personalworks/static/media/news-3.65440f58.jpg",
+    "static/media/slick-theme.css": "/react-personalworks/static/media/slick.c94f7671.ttf",
+    "static/media/story-1.f425456b.jpg": "/react-personalworks/static/media/story-1.f425456b.jpg",
+    "static/media/Story.scss": "/react-personalworks/static/media/story-9.fc3845ec.jpg",
+    "static/media/story-2.875d912b.jpg": "/react-personalworks/static/media/story-2.875d912b.jpg",
+    "static/media/story-3.385259a4.jpg": "/react-personalworks/static/media/story-3.385259a4.jpg",
+    "static/media/story-4.784d93fd.jpg": "/react-personalworks/static/media/story-4.784d93fd.jpg",
+    "static/media/story-6.e563177a.png": "/react-personalworks/static/media/story-6.e563177a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e50b65d4.js",
+    "static/css/2.2cd63fd4.chunk.css",
+    "static/js/2.99760f0d.chunk.js",
+    "static/css/main.889e4e52.chunk.css",
+    "static/js/main.a24b9659.chunk.js"
+  ]
+}
