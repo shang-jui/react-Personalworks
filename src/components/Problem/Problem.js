@@ -136,10 +136,10 @@ const Problem = () => {
           <div className="join-us">
             <h2>加入我們</h2>
             <a href="https://www.facebook.com/">
-              <img src="img/footer-1.png" alt=""></img>
+              <img src="" alt=""></img>
             </a>
             <a href="https://line.me/zh-hant/">
-              <img src="img/footer-4.png" alt=""></img>
+              <img src="" alt=""></img>
             </a>
           </div>
         </div>

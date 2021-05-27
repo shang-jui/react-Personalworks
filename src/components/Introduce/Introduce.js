@@ -74,29 +74,47 @@ const Introduce = () => {
           <div className="intro-blockleft">
             <ul>
               <li>
-                <a href="###">
-                  <img src="" alt="" className="block" id="introImg1" onClick={imgChange}></img>
-                </a>
+                <img
+                  src=""
+                  alt=""
+                  className="block"
+                  id="introImg1"
+                  onClick={imgChange}
+                  style={{ cursor: 'pointer' }}
+                ></img>
               </li>
               <li>
-                <a href="###">
-                  <img src="" alt="" className="block" id="introImg2" onClick={imgChange}></img>
-                </a>
+                <img
+                  src=""
+                  alt=""
+                  className="block"
+                  id="introImg2"
+                  onClick={imgChange}
+                  style={{ cursor: 'pointer' }}
+                ></img>
               </li>
               <li>
-                <a href="###">
-                  <img src="" alt="" className="block" id="introImg3" onClick={imgChange}></img>
-                </a>
+                <img
+                  src=""
+                  alt=""
+                  className="block"
+                  id="introImg3"
+                  onClick={imgChange}
+                  style={{ cursor: 'pointer' }}
+                ></img>
               </li>
               <li>
-                <a href="###">
-                  <img src="" alt="" className="block" id="introImg4" onClick={imgChange}></img>
-                </a>
+                <img
+                  src=""
+                  alt=""
+                  className="block"
+                  id="introImg4"
+                  onClick={imgChange}
+                  style={{ cursor: 'pointer' }}
+                ></img>
               </li>
               <li>
-                <a href="###">
-                  <img src="" alt="" className="block introImg5" onClick={imgChange}></img>
-                </a>
+                <img src="" alt="" className="block introImg5" onClick={imgChange} style={{ cursor: 'pointer' }}></img>
               </li>
             </ul>
           </div>
@@ -250,39 +268,39 @@ const Introduce = () => {
           />
           <ul style={{ marginLeft: 0, left: 0 }} ref={relativeUl}>
             <li ref={liWidth}>
-              <a href="###">
-                <img src="img/index-15.png" alt="" id="introImg7"></img>
+              <Link to="/Introduce">
+                <img src="" alt="" id="introImg7"></img>
                 <p>助眠。漢方飲</p>
                 <p>適合： 熬夜晚睡、上班壓力大、幫助入睡</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="###">
-                <img src="img/items-4.png" alt="" id="introImg8"></img>
+              <Link to="/Introduce">
+                <img src="" alt="" id="introImg8"></img>
                 <p>明亮。漢方飲</p>
                 <p> 適合：長期操作電腦、超時看電視、長時看書</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="###">
-                <img src="img/index-12.png" alt="" id="introImg9"></img>
+              <Link to="/Introduce">
+                <img src="" alt="" id="introImg9"></img>
                 <p>精神。漢方飲</p>
                 <p>適合 : 想增加免疫力、延緩衰老的你</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="###">
-                <img src="img/index-14.png" alt="" id="introImg10"></img>
+              <Link to="/Introduce">
+                <img src="" alt="" id="introImg10"></img>
                 <p>亮妍輕。茶飲</p>
                 <p>適合 : 想要氣色紅潤與愛美女性平時的日常茶飲首選</p>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="###">
-                <img src="img/index-13.png" alt="" id="introImg11"></img>
+              <Link to="/Introduce">
+                <img src="" alt="" id="introImg11"></img>
                 <p>除濕輕。茶飲</p>
                 <p>適合 : 想消除一天水腫，並有效排除身體濕氣</p>
-              </a>
+              </Link>
             </li>
           </ul>
           <img

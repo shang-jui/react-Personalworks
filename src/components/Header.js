@@ -52,7 +52,7 @@ const Header = ({ status, handleSetState }) => {
         <i className="fa fa-bars"></i>
         <div className="header_img">
           <Link to="/">
-            <img src="img/header.png" alt="" id="headerImg1"></img>
+            <img src="" alt="" id="headerImg1"></img>
           </Link>
         </div>
         <ul className="header-list">

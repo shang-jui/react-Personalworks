@@ -1,6 +1,7 @@
 import React from 'react'
 import './Shop.scss'
 import Delete from '../../img/trash.png'
+import Path from '../../img/Path 1.png'
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { createShoplistsInDB } from '../Firebase'
@@ -157,7 +158,7 @@ const Shop = ({ information, status }) => {
     <div className="shop">
       <div className="title1">
         <h1>購物車</h1>
-        <img src="img/Path 1.png" alt=""></img>
+        <img src={Path} alt=""></img>
       </div>
       <main>
         <div className="view">

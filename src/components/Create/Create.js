@@ -1,9 +1,11 @@
 import React from 'react'
 import './Create.scss'
 import Path from '../../img/Path 1.png'
+import back from '../../img/Backward arrow.png'
 import { createUserInDB } from '../Firebase'
 import { withRouter } from 'react-router'
 import { useState, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { handleInputAccount, handleInputPassword } from '../RegularExpression'
 const Create = (props) => {
   const [account, setAccount] = useState('')
@@ -54,9 +56,9 @@ const Create = (props) => {
   }
   return (
     <div className="create">
-      <a href="./person.html">
-        <img src="img/Backward arrow.png" alt="" />
-      </a>
+      <Link to="/Person">
+        <img src={back} alt="" />
+      </Link>
 
       <div className="title">
         <h1>建立資料</h1>

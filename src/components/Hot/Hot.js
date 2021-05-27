@@ -25,7 +25,7 @@ const Hot = () => {
             </div>
             <div className="block-center">
               <Link to="/Introduce">
-                <img src="img/index-13.png" alt="" id="hotImg2" />
+                <img src="" alt="" id="hotImg2" />
               </Link>
               <div className="block-text">
                 <h2>除濕。漢方飲</h2>
@@ -112,12 +112,12 @@ const Hot = () => {
           </li>
           <li>
             <div className="block-top">
-              <img src="img/hot4.png" alt="" id="hotImg7" />
+              <img src="" alt="" id="hotImg7" />
               <h2>電腦手機族必備</h2>
             </div>
             <div className="block-center">
               <Link to="/Introduce">
-                <img src="img/items-4.png" alt="" id="hotImg8" />
+                <img src="" alt="" id="hotImg8" />
               </Link>
               <div className="block-text">
                 <h2>明亮。漢方飲</h2>
