@@ -12,6 +12,7 @@ const Introduce = () => {
   const [imgUrl, setImgUrl] = useState('')
   const [oneBox, setOneBox] = useState(false)
   const [fiveBoxes, setFiveBoxes] = useState(false)
+  const [changeOptions, setChangeOptions] = useState(true)
   const content = useRef(null)
   const itemsCount = useRef(null)
   const price1 = useRef(null)
@@ -177,14 +178,14 @@ const Introduce = () => {
 
         <ul className="describle-title">
           <li>
-            <a href="#block1">商品描述</a>
+            <p onClick={() => setChangeOptions(true)}>商品描述</p>
           </li>
           <li>
-            <a href="#block2">送貨付款方式</a>
+            <p onClick={() => setChangeOptions(false)}>送貨付款方式</p>
           </li>
         </ul>
 
-        <div className="product-describe" id="block1">
+        <div className="product-describe" id="block1" style={{ display: changeOptions ? null : 'none' }}>
           <h3>商品描述</h3>
           <img src="" alt="" id="introImg6"></img>
 
@@ -231,7 +232,7 @@ const Introduce = () => {
           </div>
         </div>
 
-        <div className="deliver" id="block2">
+        <div className="deliver" id="block2" style={{ display: changeOptions ? 'none' : null }}>
           <h3>送貨及付款方式</h3>
           <div className="deliver-block">
             <div className="deliver-left">
