@@ -113,7 +113,7 @@ const Header = ({ status, handleSetState }) => {
               <span>搜尋</span>
             </a>
           </li>
-          <li>
+          <li id="shop" onClick={() => window.location.reload()}>
             <Link to="/Shop">
               <img src="" alt="" id="headerImg3" />
               <div className="shopCount">0</div>

@@ -8,6 +8,7 @@ import { createShoplistsInDB } from '../Firebase'
 import { icon } from '../AddLocalStorage'
 
 const Shop = ({ information, status }) => {
+  const [localStorageState, setLocatState] = useState(true)
   const [shopList, setShopList] = useState([])
   const [finalPrice, setFinalPrice] = useState(0)
   const [shipping, setShipping] = useState(70)
@@ -16,6 +17,7 @@ const Shop = ({ information, status }) => {
   const [userIphone, setUserIphone] = useState('')
   const [userAddress, setUserAddress] = useState('')
   const [userTime, setUserTime] = useState('morning')
+  const [paymentState, setPaymenyState] = useState(false)
   const [localStorageStatus, setLocalStorage] = useState(false)
 
   //撈LOCALSTORAGE
@@ -23,13 +25,16 @@ const Shop = ({ information, status }) => {
     const task = []
     let tasks = JSON.parse(localStorage.getItem('tasks'))
     if (tasks == null) {
-      task.push({
-        count: '',
-        item_id: '',
-        name: '',
-        price: '',
-      })
+      console.log('null')
+      setLocatState(true)
+      // task.push({
+      //   count: '',
+      //   item_id: '',
+      //   name: '',
+      //   price: '',
+      // })
     } else {
+      setLocatState(false)
       tasks.forEach((element) => {
         task.push({
           count: element.count,
@@ -59,7 +64,7 @@ const Shop = ({ information, status }) => {
       setFinalPrice(allPrice)
       setShipping(0)
     } else {
-      setFinalPrice(allPrice + 70)
+      setFinalPrice(allPrice)
       setShipping(70)
     }
   }, [shopList])
@@ -132,7 +137,7 @@ const Shop = ({ information, status }) => {
         amount: element.count,
         item: element.name,
       })
-      shopCount = index
+      shopCount = index + 1
     })
     let day = new Date().getDate()
     let month = new Date().getMonth() + 1
@@ -153,6 +158,9 @@ const Shop = ({ information, status }) => {
       alert('請先登入')
     }
   }
+  const handlePayment = () => {
+    setPaymenyState(true)
+  }
 
   return (
     <div className="shop">
@@ -169,7 +177,10 @@ const Shop = ({ information, status }) => {
               <div className="price">單價</div>
               <div className="subtotal">小計</div>
             </div>
-            <div className="list">
+            <div className="list" style={{ display: localStorageState ? null : 'none', textAlign: 'center' }}>
+              <div>您尚未訂購任何商品</div>
+            </div>
+            <div className="list" style={{ display: localStorageState ? 'none' : null }}>
               {lists.map((marker) => (
                 <div className="listCount" key={marker.item_id} id={marker.item_id}>
                   <p>{marker.name}</p>
@@ -292,30 +303,39 @@ const Shop = ({ information, status }) => {
             </div>
           </div>
           <div className="payment">
-            <div className="title">付款資料</div>
-            {/* <div id="cardview-container"></div> */}
-            <div className="line">
+            <div className="title">
+              付款資料
+              <button
+                type="button"
+                id="creditCard"
+                onClick={handlePayment}
+                style={{
+                  display: paymentState ? 'none' : null,
+                  marginLeft: '20px',
+                  backgroundColor: '#4e342c',
+                  width: '120px',
+                }}
+              >
+                新增信用卡
+              </button>
+            </div>
+
+            <div className="line" style={{ display: paymentState ? null : 'none' }}>
               <div className="text">信用卡號碼</div>
               <div className="input">
-                <div className="tpfield" id="card-number">
-                  {/* <input type="text" placeholder="**** **** **** ****" /> */}
-                </div>
+                <div className="tpfield" id="card-number"></div>
               </div>
             </div>
-            <div className="line">
+            <div className="line" style={{ display: paymentState ? null : 'none' }}>
               <div className="text">有效期限</div>
               <div className="input">
-                <div className="tpfield" id="card-expiration-date">
-                  {/* <input type="text" placeholder="MM/YY" /> */}
-                </div>
+                <div className="tpfield" id="card-expiration-date"></div>
               </div>
             </div>
-            <div className="line">
+            <div className="line" style={{ display: paymentState ? null : 'none' }}>
               <div className="text">安全碼</div>
               <div className="input">
-                <div className="tpfield" id="card-ccv">
-                  {/* <input type="text" placeholder="ccv" /> */}
-                </div>
+                <div className="tpfield" id="card-ccv"></div>
               </div>
             </div>
           </div>
@@ -345,10 +365,10 @@ const Shop = ({ information, status }) => {
               </div>
             </div>
             <div className="row">
-              {/* <button id="submit-button" onClick={writeInFirebase}>
+              <button id="submit-button" onClick={writeInFirebase}>
                 確認付款
-              </button> */}
-              <button id="submit-button">確認付款</button>
+              </button>
+              {/* <button id="submit-button">確認付款</button> */}
             </div>
           </div>
         </div>
