@@ -74,9 +74,9 @@ const Index = ({ searchState, handleSetState }) => {
     point1.current.index = 1
     point2.current.index = 2
   }, [])
-  // useEffect(() => {
-  //   setInterval(changeCount, 2000)
-  // }, [frameCount])
+  useEffect(() => {
+    setInterval(changeCount, 2000)
+  }, [])
   useEffect(() => {
     framePics()
   }, [frameCount])
