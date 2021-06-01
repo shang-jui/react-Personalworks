@@ -48,7 +48,9 @@ JavaScript(ES6)  |        |SCSS                 |Storage          |             
 - ### 使用 WebStorage、TapPay及資料庫FireBase開發購物車功能
 - ### 即時顯示已經入購物車清單之商品
 ## 登入註冊/忘記密碼
-![image](https://github.com/shang-jui/personalproject/blob/main/img/personal-Process.gif)
+|登入|註冊|
+|:---------------:|:---------------:|
+![image](https://github.com/shang-jui/personalproject/blob/main/img/personal-Process.gif)|![image](https://github.com/shang-jui/personalproject/blob/main/img/personal-Process.gif)
 - ### 使用正規表達式
 - ### 使用Firebase實現會員一般註冊、登入及忘記密碼
 ## 第三方登入(FB/Google) 
