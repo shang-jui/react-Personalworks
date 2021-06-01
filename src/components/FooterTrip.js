@@ -4,7 +4,7 @@ const FooterTrip = () => {
   return (
     <div className="footer-trip">
       <div className="footer-trip-content">
-        <p>© 2020 漢方輕。茶飲版權所有</p>
+        <p>©(網站僅供學習使用)</p>
         <p>隱私權說明</p>
         <p>Taiwan</p>
       </div>
