@@ -134,23 +134,9 @@
           }
           prime = result.card.prime
           console.log(`成功!prime=${prime}`)
-
-          $.ajax({
-            method: 'POST',
-            url: '../src/php/payment.php',
-            data: {
-              prime: prime,
-            },
-            dataType: 'text',
-            success: function (response) {
-              alert('結帳成功')
-              localStorage.clear()
-              window.location.reload()
-            },
-            error: function (exception) {
-              alert('發生錯誤: ' + exception.status)
-            },
-          })
+          alert('結帳成功')
+          localStorage.clear()
+          window.location.reload()
         })
       }
     }
