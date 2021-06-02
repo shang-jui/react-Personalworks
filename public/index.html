@@ -111,7 +111,6 @@
         },
       })
       document.getElementById('submit-button').addEventListener('click', function (event) {
-        console.log('1')
         onSubmit(event)
       })
       let prime
@@ -135,10 +134,7 @@
           }
           prime = result.card.prime
           console.log(`成功!prime=${prime}`)
-          // send prime to your server, to pay with Pay by Prime API .
-          // Pay By Prime Docs: https://docs.tappaysdk.com/tutorial/zh/back.html#pay-by-prime-api
-          // prepareOrder(prime)
-          // checkout(order, getCheckout)
+
           $.ajax({
             method: 'POST',
             url: '../src/php/payment.php',
@@ -147,10 +143,9 @@
             },
             dataType: 'text',
             success: function (response) {
-              //更新html內容
-              console.log(response)
-
-              console.log('完成')
+              alert('結帳成功')
+              localStorage.clear()
+              window.location.reload()
             },
             error: function (exception) {
               alert('發生錯誤: ' + exception.status)

@@ -105,12 +105,12 @@ const Shop = ({ information, status }) => {
     setLocalStorage(!localStorageStatus)
     icon()
   }
-  //收件資料填寫
-  useEffect(() => {
-    setUserName(information[0].name)
-    setUserEmail(information[0].email)
-    setUserAddress(information[0].address)
-  }, [userName])
+  // //收件資料填寫
+  // useEffect(() => {
+  //   setUserName(information[0].name)
+  //   setUserEmail(information[0].email)
+  //   setUserAddress(information[0].address)
+  // }, [])
 
   //更改收件資料
   const hangleChangeName = (e) => {
