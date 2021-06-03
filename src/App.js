@@ -15,6 +15,7 @@ import Problem from './components/Problem/Problem'
 import Shop from './components/Shop/Shop'
 import Story from './components/Story/Story'
 import Information from './components/Information/Information'
+import Mobile from './components/Mobile'
 import { Switch, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import firebase from 'firebase'
@@ -45,15 +46,6 @@ function App() {
   const handleFindItem = (data) => {
     setFindItdm(data)
   }
-  // const searchItem = []
-  // findItem.forEach((item) => {
-  //   searchItem.push({
-  //     id: item.id,
-  //     imgUrl: item.imgUrl,
-  //     title: item.title,
-  //     introduce: item.introduce,
-  //   })
-  // })
   useEffect(() => {
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig)
@@ -160,6 +152,7 @@ function App() {
           <Information information={information} />
         </Route>
       </Switch>
+      <Mobile status={status} />
       <Footer />
       <FooterTrip />
     </div>

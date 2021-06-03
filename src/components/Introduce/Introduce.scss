@@ -1,8 +1,21 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
 .introduce {
   max-width: 1200px;
   margin: 120px auto 30px;
   /* background-color: white; */
   padding-top: 10px;
+  @include mobile {
+    margin: 20px auto 30px;
+  }
   .bread {
     padding: 20px;
     a {
@@ -18,6 +31,9 @@
     font-size: 36px;
     font-weight: bold;
     color: #4c4948;
+    @include mobile {
+      font-size: 28px;
+    }
     img {
       position: relative;
       top: -20px;
@@ -27,21 +43,47 @@
   .intro-top {
     display: flex;
     justify-content: space-around;
+    @include mobile {
+      display: block;
+    }
     .intro-blockleft {
       align-self: center;
       flex-grow: 1;
+      @include mobile {
+        margin: 0;
+      }
+      @include pad {
+        margin: 0 0 0 10px;
+      }
+      ul {
+        @include mobile {
+          display: flex;
+        }
+      }
       li {
         width: 80px;
         padding-bottom: 15px;
         margin: 0 auto;
+        @include mobile {
+          max-width: 80px;
+          padding-bottom: 10px;
+          margin: 10px;
+        }
         img {
           width: 100%;
         }
       }
     }
     .intro-blockcenter {
-      width: 400px;
+      max-width: 400px;
       flex-grow: 1;
+      @include mobile {
+        margin: 0 5px;
+      }
+      @include pad {
+        align-self: center;
+        margin: 0 10px;
+      }
       img {
         width: 100%;
       }
@@ -51,11 +93,25 @@
       border: 1px solid #707070;
       margin-left: 70px;
       padding: 30px;
+      @include pad {
+        background-color: white;
+        border: 1px solid #707070;
+        padding: 30px;
+        margin: 0 10px 0 0;
+      }
+      @include mobile {
+        margin: 0 5px;
+        padding: 15px 25px;
+      }
       h3 {
         font-size: 20px;
         font-weight: bold;
         margin-bottom: 30px;
         text-align: center;
+        @include mobile {
+          font-size: 18px;
+          margin-bottom: 15px;
+        }
       }
       h2 {
         font-size: 28px;
@@ -64,12 +120,18 @@
         margin-right: 10px;
         margin-bottom: 20px;
         color: #b49778;
+        @include mobile {
+          font-size: 20px;
+        }
       }
       p {
         /* text-align: right; */
         font-size: 20px;
         font-weight: bold;
         margin-bottom: 30px;
+        @include mobile {
+          font-size: 16px;
+        }
       }
       .block-quantity {
         p {
@@ -111,6 +173,9 @@
       .count {
         margin-left: 20px;
         margin-bottom: 50px;
+        @include mobile {
+          margin-bottom: 25px;
+        }
         select {
           font-size: 20px;
           margin-bottom: 20px;
@@ -132,6 +197,9 @@
           border-radius: 20px;
           outline: none;
           cursor: pointer;
+          @include pad {
+            margin: 0;
+          }
         }
       }
     }
@@ -144,6 +212,9 @@
     padding: 10px;
     border-bottom: 1px solid;
     font-weight: bold;
+    @include mobile {
+      font-size: 20px;
+    }
     p {
       text-decoration: none;
       cursor: pointer;
@@ -155,11 +226,17 @@
     }
   }
   .product-describe {
+    @include mobile {
+      font-size: 12px;
+    }
     h3 {
       font-size: 28px;
       text-align: center;
       font-weight: bold;
       padding: 20px;
+      @include mobile {
+        font-size: 18px;
+      }
     }
     img {
       width: 100%;
@@ -171,16 +248,29 @@
       grid-template-rows: 50% 50%;
       line-height: 1.3;
       padding: 10px;
+      @include mobile {
+        height: auto;
+        grid-template-columns: none;
+        grid-template-rows: none;
+      }
       > div {
         padding: 10px;
         &:nth-child(odd) {
           border-right: 2px dashed;
+          @include mobile {
+            border-right: 0px;
+          }
         }
         &:nth-child(1) {
           border-bottom: 2px dashed;
         }
         &:nth-child(2) {
           border-bottom: 2px dashed;
+        }
+        &:nth-child(3) {
+          @include mobile {
+            border-bottom: 2px dashed;
+          }
         }
       }
     }
@@ -192,6 +282,9 @@
       text-align: center;
       font-weight: bold;
       padding: 20px;
+      @include mobile {
+        font-size: 18px;
+      }
     }
     .deliver-block {
       display: grid;
@@ -201,12 +294,19 @@
       line-height: 1.3;
       text-align: center;
       padding: 10px;
+      @include mobile {
+        font-size: 12px;
+        padding: 5px;
+      }
       .deliver-left {
         border-right: 2px dashed;
         p {
           font-size: 20px;
           font-weight: bold;
           margin-bottom: 10px;
+          @include mobile {
+            font-size: 16px;
+          }
         }
       }
     }
@@ -217,6 +317,9 @@
       text-align: center;
       font-weight: bold;
       padding: 20px;
+      @include mobile {
+        font-size: 18px;
+      }
     }
     ul {
       display: grid;
@@ -247,6 +350,9 @@
             &:nth-child(2) {
               font-size: 16px;
               margin-top: 10px;
+              @include mobile {
+                font-size: 12px;
+              }
             }
           }
         }
@@ -273,6 +379,10 @@
         padding: 8px;
         flex-shrink: 0;
         width: 32%;
+        @include mobile {
+          padding: 7px;
+          width: 30%;
+        }
         a {
           text-decoration: none;
           color: #4c4948;
@@ -285,6 +395,14 @@
             font-size: 20px;
             font-weight: bold;
             margin: 20px 0;
+            @include mobile {
+              font-size: 16px;
+            }
+          }
+          &:nth-child(3) {
+            @include mobile {
+              font-size: 12px;
+            }
           }
         }
       }

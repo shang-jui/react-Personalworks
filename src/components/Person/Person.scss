@@ -1,13 +1,30 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
 .log-in {
   max-width: 1200px;
   margin: 120px auto 30px;
   /* background-color: white; */
   padding-top: 10px;
+  @include mobile {
+    margin: 20px auto 30px;
+  }
   .title {
     text-align: center;
     font-size: 36px;
     font-weight: bold;
     color: #4c4948;
+    @include mobile {
+      text-align: center;
+      font-size: 28px;
+    }
     img {
       position: relative;
       top: -20px;
@@ -19,6 +36,12 @@
     margin: 10px auto;
     padding: 20px;
     background-color: white;
+    @include mobile {
+      width: 80%;
+      margin: 10px auto;
+      padding: 20px;
+      background-color: white;
+    }
     p {
       text-align: left;
       font-size: 20px;

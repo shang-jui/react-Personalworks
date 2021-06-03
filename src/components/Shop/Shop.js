@@ -25,7 +25,6 @@ const Shop = ({ information, status }) => {
     const task = []
     let tasks = JSON.parse(localStorage.getItem('tasks'))
     if (tasks == null) {
-      console.log('null')
       setLocatState(true)
       // task.push({
       //   count: '',

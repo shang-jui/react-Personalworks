@@ -1,13 +1,29 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
 .hot {
   max-width: 1200px;
   margin: 120px auto 30px;
   /* background-color: white; */
   padding-top: 10px;
+  @include mobile {
+    margin: 20px auto 30px;
+  }
   .title {
     text-align: center;
     font-size: 36px;
     font-weight: bold;
     color: #4c4948;
+    @include mobile {
+      font-size: 28px;
+    }
     img {
       position: relative;
       top: -20px;
@@ -17,11 +33,20 @@
   .hot-block {
     ul {
       display: flex;
+      @include pad {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
       > li {
         outline: 1px solid;
         margin-right: 20px;
         margin-bottom: 20px;
         width: 600px;
+        @include mobile {
+          border: 1px solid;
+          margin: 20px 5px;
+          max-width: 600px;
+        }
         .block-top {
           display: flex;
           justify-content: center;
@@ -32,17 +57,30 @@
             width: 100px;
             top: -40px;
             left: -40px;
+            @include mobile {
+              max-width: 80px;
+              top: -47px;
+              left: -13px;
+            }
           }
           h2 {
             font-size: 28px;
             font-weight: bold;
             text-align: center;
             padding-top: 10px;
+            @include mobile {
+              font-size: 20px;
+            }
           }
         }
         .block-center {
           display: flex;
           padding: 20px;
+          @include mobile {
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: center;
+          }
           img {
             width: 300px;
           }
@@ -52,11 +90,18 @@
               font-weight: bold;
               text-align: center;
               margin-bottom: 20px;
+              @include mobile {
+                font-size: 20px;
+                margin-top: 10px;
+              }
             }
             li {
               padding: 0 20px 10px;
               font-size: 20px;
               line-height: 1.4;
+              @include mobile {
+                font-size: 16px;
+              }
             }
           }
         }
@@ -77,6 +122,11 @@
               outline: none;
               cursor: pointer;
               margin: 0 10px 10px;
+              @include mobile {
+                width: 75px;
+                line-height: 20px;
+                font-size: 12px;
+              }
             }
           }
           .bottom-text {
@@ -86,6 +136,11 @@
               font-size: 28px;
               font-weight: bold;
               margin-right: 10px;
+              @include mobile {
+                font-size: 18px;
+                font-weight: bold;
+                margin-right: 10px;
+              }
             }
             h3:nth-child(2) {
               color: red;

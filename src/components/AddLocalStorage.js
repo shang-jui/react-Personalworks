@@ -66,12 +66,15 @@ export function icon() {
   const tasks = JSON.parse(window.localStorage.getItem('tasks'))
   let list
   const shopCount = document.getElementsByClassName('shopCount')[0]
+  const mobileCount = document.getElementsByClassName('mobileshopCount')[0]
   if (tasks == null) {
     let list = 0
     shopCount.innerHTML = list
+    mobileCount.innerHTML = list
   } else {
     let list = tasks.length
     shopCount.innerHTML = list
+    mobileCount.innerHTML = list
   }
   // const mobileshopCount = document.getElementsByClassName('mobileshopCount')[0]
   // mobileshopCount.innerHTML = list

@@ -1,11 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import firebase from 'firebase'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { firebaseConfig } from './FirebaseKey'
 import './Header.scoped.scss'
 import { icon } from './AddLocalStorage'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 const Header = ({ status, handleSetState }) => {
+  const [barState, setBarState] = useState(false)
+  window.onscroll = function () {
+    setBarState(false)
+  }
+  useEffect(() => {
+    setBarState(false)
+  }, [])
   useEffect(() => {
     //為避免firebase被重複初始化要加入以下這段程式碼
     icon()
@@ -49,13 +58,14 @@ const Header = ({ status, handleSetState }) => {
   return (
     <header>
       <div className="header-content">
-        <i className="fa fa-bars"></i>
+        <FontAwesomeIcon icon={faBars} className="fa fa-bars" onClick={() => setBarState(!barState)} />
         <div className="header_img">
           <Link to="/">
             <img src="" alt="" id="headerImg1"></img>
           </Link>
         </div>
-        <ul className="header-list">
+        {/* <ul className="header-list hideHam"> */}
+        <ul className={`header-list ${barState ? '' : 'hideHam'}`}>
           <li>
             <Link to="/Story" className="btn-2">
               品牌故事

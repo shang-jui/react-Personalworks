@@ -1,13 +1,29 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
 .shop {
   max-width: 1200px;
   margin: 120px auto 30px;
   background-color: white;
   padding-top: 10px;
+  @include mobile {
+    margin: 20px auto 30px;
+  }
   .title1 {
     text-align: center;
     font-size: 42px;
     font-weight: bold;
     color: #4c4948;
+    @include mobile {
+      font-size: 28px;
+    }
     img {
       position: relative;
       top: -20px;
@@ -50,6 +66,10 @@
             background-color: #f3f3f3;
             padding: 10px;
             border-radius: 4px;
+            @include mobile {
+              padding: 5px;
+              margin-top: 5px;
+            }
           }
         }
       }
@@ -69,9 +89,16 @@
           display: flex;
           align-items: center;
           margin-bottom: 15px;
+          @include mobile {
+            flex-wrap: wrap;
+          }
           > .text {
             flex: none;
             width: 180px;
+            @include mobile {
+              width: 100%;
+              margin-bottom: 5px;
+            }
           }
           > .input {
             flex: auto;
@@ -86,6 +113,10 @@
               width: 200px;
               border-radius: 4px;
               border: solid 1px #979797;
+              @include mobile {
+                width: 80%;
+                margin-top: 5px;
+              }
             }
           }
         }
@@ -128,6 +159,9 @@
           justify-content: flex-end;
           padding-bottom: 10px;
           margin-bottom: 15px;
+          @include mobile {
+            justify-content: center;
+          }
           .title {
             flex: none;
             width: 100px;
@@ -216,6 +250,9 @@ button {
   top: 25%;
   right: 0;
   cursor: pointer;
+  @include mobile {
+    right: -3%;
+  }
 }
 .deleteImg img {
   width: 100%;

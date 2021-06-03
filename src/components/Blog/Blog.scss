@@ -1,13 +1,29 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
 .main-blog {
   max-width: 1200px;
   margin: 120px auto 30px;
   background-color: white;
   padding-top: 10px;
+  @include mobile {
+    margin: 20px auto 30px;
+  }
   .title {
     text-align: center;
     font-size: 36px;
     font-weight: bold;
     color: #4c4948;
+    @include mobile {
+      font-size: 28px;
+    }
     img {
       position: relative;
       top: -20px;
@@ -17,10 +33,24 @@
   .main-content {
     display: flex;
     align-items: start;
+    @include pad {
+      display: block;
+    }
     .main-button {
       width: 150px;
       border: 1px solid #4c4948;
       margin-left: 50px;
+      @include pad {
+        max-width: 450px;
+        &:hover ol {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+      @include mobile {
+        width: 350px;
+        margin-left: 20px;
+      }
       .main-button-top {
         display: flex;
         justify-content: space-between;
@@ -29,6 +59,10 @@
         p {
           font-size: 20px;
           font-weight: bold;
+          @include mobile {
+            font-size: 16px;
+            font-weight: bold;
+          }
         }
         .plus {
           background-image: url(../../img/blog-plus.png);
@@ -66,23 +100,36 @@
           &:hover {
             background-color: #e0d6c3;
           }
+          @include mobile {
+            font-size: 16px;
+            padding: 5px;
+          }
         }
       }
     }
   }
   .main-article {
     padding: 20px;
+    @include pad {
+      padding: 20px 5px;
+    }
     ul {
       max-width: 900px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      @include mobile {
+        justify-content: center;
+      }
       li {
         max-width: 400px;
         padding: 10px;
         margin-right: 10px;
         margin-bottom: 10px;
         position: relative;
+        @include pad {
+          max-width: 330px;
+        }
         h3 {
           display: inline;
           font-size: 20px;
@@ -93,6 +140,9 @@
           left: 0;
           top: 0;
           background-color: #e0d6c3;
+          @include mobile {
+            font-size: 18px;
+          }
         }
         .main-article-content {
           display: flex;
@@ -100,6 +150,10 @@
             max-width: 200px;
             max-height: 150px;
             outline: 1px solid;
+            @include pad {
+              max-width: 150px;
+              height: 150px;
+            }
           }
           .text {
             position: relative;
@@ -107,6 +161,9 @@
               padding: 5px;
               font-size: 18px;
               font-weight: bold;
+              @include mobile {
+                font-size: 16px;
+              }
             }
             p:nth-child(2) {
               padding: 5px;
