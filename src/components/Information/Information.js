@@ -37,7 +37,11 @@ const Information = (props) => {
   //     shopLists: data.shopLists,
   //   })
   // })
-
+  const handleLogout = () => {
+    if (window.confirm('是否將目前帳戶登出?')) {
+      logOut(props)
+    }
+  }
   return (
     <div className="InformationDiv">
       <div className="memberInformation">
@@ -49,16 +53,25 @@ const Information = (props) => {
         ></div>
         <div className="topInformation">
           <h1>姓名:{information[0].name}</h1>
-          <button type="button" onClick={() => logOut(props)}>
+          {/* <button type="button" onClick={() => logOut(props)}>
+            登出
+          </button> */}
+          <button type="button" onClick={() => handleLogout()}>
             登出
           </button>
         </div>
         <ul>
           <li>信箱:{information[0].email}</li>
+          <li>
+            優惠券:
+            <span>
+              {information[0].lotteryContent} ({information[0].lotteryUse ? '已使用' : '尚未使用'})
+            </span>
+          </li>
         </ul>
       </div>
       <div className="memberShopList ">
-        <button type="button" onClick={handleSetListState}>
+        <button type="button" onClick={handleSetListState} style={{ marginBottom: '10px' }}>
           已付款訂單
         </button>
         <ul className={` listOutLine ${listState ? 'close' : ''}`}>

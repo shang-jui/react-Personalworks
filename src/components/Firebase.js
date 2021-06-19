@@ -26,6 +26,9 @@ export function createUserInDB(Info) {
           city: Info.city,
           address: Info.address,
           sex: Info.sex,
+          lotteryState: Info.lotteryState,
+          lotteryContent: Info.lotteryContent,
+          lotteryUse: Info.lotteryUse,
         })
         .then(function (docRef) {
           console.log('Document written with ID: ', docRef.id)
@@ -344,6 +347,9 @@ export const googleLogIn = (props) => {
             address: '',
             sex: '',
             personUrl: user.photoURL,
+            lotteryState: false,
+            lotteryContent: '',
+            lotteryUse: false,
           },
           { merge: true }
         )
@@ -362,6 +368,7 @@ export const googleLogIn = (props) => {
       alert('此信箱已註冊過')
     })
 }
+//FBlogin
 export const FbLogin = (props) => {
   const db = firebase.firestore()
   const provider = new firebase.auth.FacebookAuthProvider()
@@ -387,6 +394,9 @@ export const FbLogin = (props) => {
             address: '',
             sex: '',
             personUrl: user.photoURL,
+            lotteryState: false,
+            lotteryContent: '',
+            lotteryUse: false,
           },
           { merge: true }
         )
@@ -400,5 +410,41 @@ export const FbLogin = (props) => {
       let errorCode = error.code
       let errorMessage = error.message
       alert('此信箱已註冊過')
+    })
+}
+//更新Lottery狀態 跟內容
+export const changeLottery = (account, content) => {
+  let id
+  let db = firebase.firestore()
+  let ref = db.collection('users')
+  ref
+    .where('email', '==', account)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        id = doc.id
+        ref.doc(id).update({
+          lotteryState: true,
+          lotteryContent: content,
+        })
+      })
+    })
+}
+//更新Lottery是否使用過
+//更新Lottery狀態 跟內容
+export const changeLotteryUse = (account) => {
+  let id
+  let db = firebase.firestore()
+  let ref = db.collection('users')
+  ref
+    .where('email', '==', account)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        id = doc.id
+        ref.doc(id).update({
+          lotteryUse: true,
+        })
+      })
     })
 }

@@ -14,6 +14,7 @@ import Person from './components/Person/Person'
 import Problem from './components/Problem/Problem'
 import Shop from './components/Shop/Shop'
 import Story from './components/Story/Story'
+import Lottery from './components/Lottery/Lottery'
 import Information from './components/Information/Information'
 import Mobile from './components/Mobile'
 import { Switch, Route } from 'react-router-dom'
@@ -22,7 +23,11 @@ import firebase from 'firebase'
 import { firebaseConfig } from './components/FirebaseKey'
 import { findItems } from './components/Firebase'
 import { Link } from 'react-router-dom'
+
+import { useDispatch } from 'react-redux'
+import { AddInformation } from './redux/action'
 function App() {
+  const dispatch = useDispatch()
   const [searchState, setSearchState] = useState(false)
   const handleSetState = (state) => {
     setSearchState(state)
@@ -38,6 +43,9 @@ function App() {
       city: '',
       address: '',
       sex: '',
+      lotteryState: false,
+      lotteryContent: '',
+      lotteryUse: false,
     },
   ]
   const [information, setInformation] = useState(defaultInformation)
@@ -74,15 +82,35 @@ function App() {
                     address: doc.data().address,
                     sex: doc.data().sex,
                     personUrl: doc.data().personUrl,
+                    lotteryState: doc.data().lotteryState,
+                    lotteryContent: doc.data().lotteryContent,
+                    lotteryUse: doc.data().lotteryUse,
                   },
                 ]
               })
+              dispatch(
+                AddInformation({
+                  email: doc.data().email,
+                  password: doc.data().password,
+                  name: doc.data().name,
+                  birthday: doc.data().birthday,
+                  country: doc.data().country,
+                  city: doc.data().city,
+                  address: doc.data().address,
+                  sex: doc.data().sex,
+                  personUrl: doc.data().personUrl,
+                  lotteryState: doc.data().lotteryState,
+                  lotteryContent: doc.data().lotteryContent,
+                  lotteryUse: doc.data().lotteryUse,
+                })
+              )
             })
           })
         setStatus(true)
       } else {
         userLogin = null
         setStatus(false)
+
         console.log('User is not logined yet.')
       }
     })
@@ -153,6 +181,7 @@ function App() {
         </Route>
       </Switch>
       <Mobile status={status} />
+      <Lottery status={status} information={information} />
       <Footer />
       <FooterTrip />
     </div>

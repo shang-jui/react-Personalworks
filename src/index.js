@@ -5,12 +5,22 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import ScrollToTop from './components/ScrollToTop'
 import { HashRouter } from 'react-router-dom'
+
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+
+import discountsApp from './redux/reducer'
+
+const store = createStore(discountsApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
-      <ScrollToTop />
-      <App />
-    </HashRouter>
+    <Provider store={store}>
+      <HashRouter>
+        <ScrollToTop />
+        <App />
+      </HashRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 )

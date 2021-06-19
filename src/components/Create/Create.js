@@ -49,6 +49,9 @@ const Create = (props) => {
         city: cityValue,
         address: addressValue,
         sex: sexBoy ? 'boy' : 'girl',
+        lotteryState: false,
+        lotteryContent: '',
+        lotteryUse: false,
       }
       createUserInDB(userInfo)
       props.history.push('/')

@@ -4,7 +4,7 @@ import Delete from '../../img/trash.png'
 import Path from '../../img/Path 1.png'
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import { createShoplistsInDB } from '../Firebase'
+import { createShoplistsInDB, changeLotteryUse } from '../Firebase'
 import { icon } from '../AddLocalStorage'
 
 const Shop = ({ information, status }) => {
@@ -19,6 +19,8 @@ const Shop = ({ information, status }) => {
   const [userTime, setUserTime] = useState('morning')
   const [paymentState, setPaymenyState] = useState(false)
   const [localStorageStatus, setLocalStorage] = useState(false)
+  const [lotteryUse, setLotteryUse] = useState(false)
+  const [discount, setDiscount] = useState('')
 
   //撈LOCALSTORAGE
   useEffect(() => {
@@ -26,12 +28,6 @@ const Shop = ({ information, status }) => {
     let tasks = JSON.parse(localStorage.getItem('tasks'))
     if (tasks == null) {
       setLocatState(true)
-      // task.push({
-      //   count: '',
-      //   item_id: '',
-      //   name: '',
-      //   price: '',
-      // })
     } else {
       setLocatState(false)
       tasks.forEach((element) => {
@@ -104,12 +100,6 @@ const Shop = ({ information, status }) => {
     setLocalStorage(!localStorageStatus)
     icon()
   }
-  // //收件資料填寫
-  // useEffect(() => {
-  //   setUserName(information[0].name)
-  //   setUserEmail(information[0].email)
-  //   setUserAddress(information[0].address)
-  // }, [])
 
   //更改收件資料
   const hangleChangeName = (e) => {
@@ -153,12 +143,33 @@ const Shop = ({ information, status }) => {
     }
     if (status === true) {
       createShoplistsInDB(info)
+      changeLotteryUse(information[0].email)
     } else {
       alert('請先登入')
     }
   }
   const handlePayment = () => {
     setPaymenyState(true)
+  }
+  const handleChangeLottery = (e) => {
+    if (e.target.checked === true) {
+      setLotteryUse(true)
+      if (information[0].lotteryContent === '現金折抵100') {
+        setDiscount('100')
+      } else if (information[0].lotteryContent === '現金折抵200') {
+        setDiscount('200')
+      } else if (information[0].lotteryContent === '現金折抵50') {
+        setDiscount('50')
+      } else if (information[0].lotteryContent === '商品75折') {
+        setDiscount(Math.round((finalPrice + shipping) * 0.25))
+      } else if (information[0].lotteryContent === '商品85折') {
+        setDiscount(Math.round((finalPrice + shipping) * 0.15))
+      } else if (information[0].lotteryContent === '商品95折') {
+        setDiscount(Math.round((finalPrice + shipping) / 0.05))
+      }
+    } else {
+      setLotteryUse(false)
+    }
   }
 
   return (
@@ -318,7 +329,6 @@ const Shop = ({ information, status }) => {
                 新增信用卡
               </button>
             </div>
-
             <div className="line" style={{ display: paymentState ? null : 'none' }}>
               <div className="text">信用卡號碼</div>
               <div className="input">
@@ -338,6 +348,12 @@ const Shop = ({ information, status }) => {
               </div>
             </div>
           </div>
+          <div className="lottery" style={{ display: information[0].lotteryUse ? 'none' : null }}>
+            <div className="title">優惠券</div>
+            <div className="line">
+              <input type="checkbox" onChange={handleChangeLottery} /> {information[0].lotteryContent}
+            </div>
+          </div>
           <div className="confirm">
             <div className="row">
               <div className="title">總金額</div>
@@ -353,6 +369,13 @@ const Shop = ({ information, status }) => {
                 <span id="freight">{shipping}</span>
               </div>
             </div>
+            <div className="row" style={{ display: lotteryUse ? '' : 'none' }}>
+              <div className="title">優惠券</div>
+              <div className="priceView">
+                <span className="unit">-NT.</span>
+                <span id="freight">{discount}</span>
+              </div>
+            </div>
             <div className="row">
               <div className="seperator"></div>
             </div>
@@ -360,14 +383,13 @@ const Shop = ({ information, status }) => {
               <div className="title">應付金額</div>
               <div className="priceView">
                 <span className="unit">NT.</span>
-                <span id="total">{finalPrice + shipping}</span>
+                <span id="total">{finalPrice + shipping - discount}</span>
               </div>
             </div>
             <div className="row">
               <button id="submit-button" onClick={writeInFirebase}>
                 確認付款
               </button>
-              {/* <button id="submit-button">確認付款</button> */}
             </div>
           </div>
         </div>

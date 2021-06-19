@@ -149,6 +149,19 @@
           }
         }
       }
+      .lottery {
+        .title {
+          border-bottom: 1px solid #3f3a3a;
+          margin-bottom: 15px;
+          padding-bottom: 10px;
+          font-weight: bold;
+        }
+        .line {
+          display: flex;
+          align-items: center;
+          margin-bottom: 15px;
+        }
+      }
       .confirm {
         border-top: solid 1px #3f3a3a;
         margin-bottom: 20px;
