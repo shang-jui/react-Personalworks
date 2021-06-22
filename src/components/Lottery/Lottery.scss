@@ -1,3 +1,13 @@
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
 .lotteryBtn {
   cursor: pointer;
   display: block;
@@ -14,6 +24,12 @@
   transition: all 1s linear;
   &:hover {
     right: 0px;
+  }
+  @include pad {
+    bottom: 35vw;
+  }
+  @include mobile {
+    bottom: 30vw;
   }
   .lotteryContext {
     display: flex;

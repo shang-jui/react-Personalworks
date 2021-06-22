@@ -19,6 +19,9 @@
     max-width: 1200px;
     border-bottom: 2px solid black;
     margin-top: 7%;
+    @include pad {
+      flex-wrap: wrap;
+    }
     .defaultImg {
       margin: 0 2%;
       border-radius: 100%;
@@ -32,6 +35,9 @@
     .topInformation {
       flex-grow: 3;
       font-size: 20px;
+      @include pad {
+        width: 50%;
+      }
       .basic {
         padding: 5% 0;
         display: flex;
@@ -63,6 +69,9 @@
     .changetopInformation {
       flex-grow: 3;
       font-size: 20px;
+      @include pad {
+        width: 50%;
+      }
       .basic {
         padding: 5% 0;
         display: flex;
@@ -73,6 +82,11 @@
             width: 77%;
             font-size: 20px;
             font-weight: bold;
+          }
+        }
+        #name {
+          @include pad {
+            width: 100px;
           }
         }
       }
@@ -101,12 +115,15 @@
       button {
         display: block;
         margin-bottom: 3%;
+        @include pad {
+          margin: 2% auto;
+        }
       }
     }
   }
   .coupon {
     position: relative;
-    width: 400px;
+    max-width: 400px;
     height: 160px;
     margin: 50px auto;
     background-image: radial-gradient(circle at 1px 8px, transparent 6px, #ff9e6d 6px, #ff9e6d 0px),

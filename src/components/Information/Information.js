@@ -95,7 +95,7 @@ const Information = (props) => {
           <div className="basic">
             <p>
               姓名:
-              <input type="text" defaultValue={information[0].name} ref={userName} />
+              <input type="text" defaultValue={information[0].name} ref={userName} id="name" />
             </p>
             <p>
               生日:
