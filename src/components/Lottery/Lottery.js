@@ -2,7 +2,7 @@ import lotteryPic from '../../img/wheel.png'
 import './Lottery.scss'
 import LottrryPage from './LottrryPage'
 import { Fragment, useState } from 'react'
-const Lottery = ({ status, information }) => {
+const Lottery = ({ status, information, setInformation }) => {
   const [pageState, setPageState] = useState(false)
   const handleSetPageState = () => {
     if (status === true && information[0].lotteryState === false) {
@@ -29,7 +29,12 @@ const Lottery = ({ status, information }) => {
           </ul>
         </div>
       </div>
-      <LottrryPage pageState={pageState} setPageState={setPageState} information={information} />
+      <LottrryPage
+        pageState={pageState}
+        setPageState={setPageState}
+        information={information}
+        setInformation={setInformation}
+      />
     </Fragment>
   )
 }

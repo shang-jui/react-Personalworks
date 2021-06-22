@@ -52,6 +52,7 @@ const Create = (props) => {
         lotteryState: false,
         lotteryContent: '',
         lotteryUse: false,
+        personUrl: '',
       }
       createUserInDB(userInfo)
       props.history.push('/')

@@ -1,8 +1,8 @@
 import './LotteryPage.scss'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import DeleteImg from '../../img/delete.png'
-import { changeLottery } from '../Firebase'
-const LottrryPage = ({ pageState, setPageState, information }) => {
+import { changeLottery, OnSnapShot } from '../Firebase'
+const LottrryPage = ({ pageState, setPageState, information, setInformation }) => {
   const [discountContent, setDiscount] = useState('')
   const LotterBtn = useRef(null)
   const LottertDiscount = useRef(null)
@@ -24,7 +24,26 @@ const LottrryPage = ({ pageState, setPageState, information }) => {
       LotterBtn.current.style.backgroundColor = 'lightgray'
       setDiscount(LottertDiscount.current.innerHTML)
       changeLottery(information[0].email, LottertDiscount.current.innerHTML)
-      window.location.reload()
+      const changeInfo = [
+        {
+          email: information[0].email,
+          password: information[0].password,
+          name: information[0].name,
+          birthday: information[0].birthday,
+          country: information[0].country,
+          city: information[0].city,
+          address: information[0].address,
+          sex: information[0].sex,
+          lotteryState: information[0].lotteryState,
+          lotteryContent: LottertDiscount.current.innerHTML,
+          lotteryUse: information[0].lotteryUse,
+          personUrl: information[0].personUrl,
+        },
+      ]
+      setInformation(changeInfo)
+      // setTimeout(function () {
+      //   window.location.reload()
+      // }, 1500)
     }
   }
 

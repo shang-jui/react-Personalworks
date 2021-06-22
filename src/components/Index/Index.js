@@ -271,26 +271,6 @@ const Index = ({ searchState, handleSetState }) => {
           </ul>
         </div>
       </div>
-      {/* <div className={searchState ? 'searchBox' : null} style={{ display: searchState ? null : 'none' }}>
-        <input
-          type="text"
-          size="30"
-          placeholder="輸入關鍵字..."
-          onChange={(e) => findItems(e.target.value, handleFindItem)}
-        />
-        <p>搜尋結果</p>
-        <ul>
-          {searchItem.map((marker) => (
-            <Link to="/Introduce">
-              <li id={marker.id}>
-                <img src={marker.imgUrl} alt=""></img>
-                <h2>{marker.title}</h2>
-                <p>{marker.introduce}</p>
-              </li>
-            </Link>
-          ))}
-        </ul>
-      </div> */}
     </div>
   )
 }

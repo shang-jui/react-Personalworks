@@ -29,6 +29,7 @@ export function createUserInDB(Info) {
           lotteryState: Info.lotteryState,
           lotteryContent: Info.lotteryContent,
           lotteryUse: Info.lotteryUse,
+          personUrl: Info.personUrl,
         })
         .then(function (docRef) {
           console.log('Document written with ID: ', docRef.id)
@@ -444,6 +445,49 @@ export const changeLotteryUse = (account) => {
         id = doc.id
         ref.doc(id).update({
           lotteryUse: true,
+        })
+      })
+    })
+}
+//及時監聽LOttery 內容
+// export const OnSnapShot = (account) => {
+//   let id
+//   let db = firebase.firestore()
+//   let ref = db.collection('users')
+//   const LotteryChange = []
+//   ref
+//     .where('email', '==', account)
+//     .get()
+//     .then((querySnapshot) => {
+//       querySnapshot.forEach((doc) => {
+//         id = doc.id
+//         ref.doc(id).onSnapshot((doc) => {
+//           LotteryChange.push({
+//             lotteryContent: doc.data().lotteryContent,
+//             lotteryState: doc.data().lotteryState,
+//             lotteryUse: doc.data().lotteryUse,
+//           })
+//         })
+//       })
+//     })
+//   return LotteryChange
+// }
+
+//會員資料修改
+export const changeInformation = (info) => {
+  let id
+  let db = firebase.firestore()
+  let ref = db.collection('users')
+  ref
+    .where('email', '==', info.email)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        id = doc.id
+        ref.doc(id).update({
+          birthday: info.birthday,
+          name: info.name,
+          address: info.address,
         })
       })
     })

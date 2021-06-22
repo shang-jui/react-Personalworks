@@ -46,6 +46,7 @@ function App() {
       lotteryState: false,
       lotteryContent: '',
       lotteryUse: false,
+      personUrl: '',
     },
   ]
   const [information, setInformation] = useState(defaultInformation)
@@ -177,11 +178,11 @@ function App() {
           <Story />
         </Route>
         <Route path="/Information" exact>
-          <Information information={information} />
+          <Information information={information} setInformation={setInformation} />
         </Route>
       </Switch>
       <Mobile status={status} />
-      <Lottery status={status} information={information} />
+      <Lottery status={status} information={information} setInformation={setInformation} />
       <Footer />
       <FooterTrip />
     </div>
