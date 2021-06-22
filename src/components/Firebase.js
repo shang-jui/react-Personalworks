@@ -123,6 +123,7 @@ export const lists = (email, callback) => {
   const ref = db.collection('shopLists')
   ref
     .where('mail', '==', email)
+    .orderBy('訂單日期', 'desc')
     .get()
     .then((querySnapshot) => {
       const list = []
@@ -335,6 +336,7 @@ export const googleLogIn = (props) => {
       let user = result.user
 
       alert('登入成功')
+
       db.collection('users')
         .doc(user.email)
         .set(
@@ -342,15 +344,15 @@ export const googleLogIn = (props) => {
             email: user.email,
             password: token,
             name: user.displayName,
-            birthday: '',
+            // birthday: '',
             country: '',
             city: '',
             address: '',
             sex: '',
             personUrl: user.photoURL,
-            lotteryState: false,
-            lotteryContent: '',
-            lotteryUse: false,
+            // lotteryState: false,
+            // lotteryContent: '',
+            // lotteryUse: false,
           },
           { merge: true }
         )
@@ -389,15 +391,15 @@ export const FbLogin = (props) => {
             email: user.email,
             password: accessToken,
             name: user.displayName,
-            birthday: '',
+            // birthday: '',
             country: '',
             city: '',
             address: '',
             sex: '',
             personUrl: user.photoURL,
-            lotteryState: false,
-            lotteryContent: '',
-            lotteryUse: false,
+            // lotteryState: false,
+            // lotteryContent: '',
+            // lotteryUse: false,
           },
           { merge: true }
         )

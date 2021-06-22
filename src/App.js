@@ -63,7 +63,7 @@ function App() {
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         userLogin = user
-        console.log('User is logined', user)
+        // console.log('User is logined', user)
         let db = firebase.firestore()
         let ref = db.collection('users')
         ref

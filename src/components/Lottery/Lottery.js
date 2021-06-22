@@ -5,7 +5,7 @@ import { Fragment, useState } from 'react'
 const Lottery = ({ status, information, setInformation }) => {
   const [pageState, setPageState] = useState(false)
   const handleSetPageState = () => {
-    if (status === true && information[0].lotteryState === false) {
+    if ((status === true && information[0].lotteryState === false) || information[0].lotteryState === undefined) {
       setPageState(true)
     } else if (information[0].lotteryState === true) {
       alert('您已參加過抽獎!')
