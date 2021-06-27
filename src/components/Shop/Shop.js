@@ -165,7 +165,7 @@ const Shop = ({ information, status }) => {
       } else if (information[0].lotteryContent === '商品85折') {
         setDiscount(Math.round((finalPrice + shipping) * 0.15))
       } else if (information[0].lotteryContent === '商品95折') {
-        setDiscount(Math.round((finalPrice + shipping) / 0.05))
+        setDiscount(Math.round((finalPrice + shipping) * 0.05))
       }
     } else {
       setLotteryUse(false)
