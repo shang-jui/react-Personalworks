@@ -135,7 +135,7 @@ const Shop = ({ information, status }) => {
     let info = {
       mail: userEmail,
       shopLists: shopLists,
-      total: finalPrice,
+      total: finalPrice + shipping - discount,
       date: date,
       id: shopListID,
       count: shopCount,
