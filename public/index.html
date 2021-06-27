@@ -136,7 +136,9 @@
           console.log(`成功!prime=${prime}`)
           alert('結帳成功')
           localStorage.clear()
-          window.location.reload()
+          setTimeout(() => {
+            window.location.reload()
+          }, 500)
         })
       }
     }

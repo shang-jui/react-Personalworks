@@ -100,7 +100,6 @@ const Shop = ({ information, status }) => {
     setLocalStorage(!localStorageStatus)
     icon()
   }
-
   //更改收件資料
   const hangleChangeName = (e) => {
     setUserName(e.target.value)
