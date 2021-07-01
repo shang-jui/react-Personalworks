@@ -38,10 +38,15 @@ JavaScript(ES6)  |        |SCSS                 |Storage          |             
 |:---------------:|:---------------:|:------:|
 ![image](https://github.com/shang-jui/personalproject/blob/main/img/personal-shop.gif)|![image](https://github.com/shang-jui/personalproject/blob/main/img/personal-person.gif) | ![image](https://github.com/shang-jui/personalproject/blob/main/img/personal-create.gif)|
 
+抽獎 |會員頁面  | 
+|:---------------:|:---------------:|
+![image](https://github.com/shang-jui/react-personalworks/blob/master/src/img/discount.gif)|![image](https://github.com/shang-jui/react-personalworks/blob/master/src/img/information.gif) | 
+
 - ### "首頁"建立輪播廣告牆
 - ### "最新消息"建立輪播廣告牆及滾動視差
 - ### "部落格"建立分類機制
 - ### "商品總覽"使用CSS實現特效
+- ### "抽獎"可做折扣優惠
 - ### 使用 SCSS 實現 RWD 效果
 
 ## 搜尋
@@ -51,6 +56,7 @@ JavaScript(ES6)  |        |SCSS                 |Storage          |             
 ![image](https://github.com/shang-jui/react-personalworks/blob/master/reactpersonal-SHOP.gif)
 - ### 使用 WebStorage、TapPay及資料庫FireBase開發購物車功能
 - ### 即時顯示已經入購物車清單之商品
+- ### 可自由選擇是否使用折價券
 ## 登入註冊/忘記密碼
 |登入|註冊|
 |:---------------:|:---------------:|
@@ -63,6 +69,7 @@ JavaScript(ES6)  |        |SCSS                 |Storage          |             
 ![image](https://github.com/shang-jui/react-personalworks/blob/master/reactpersonal-FB.gif)|![image](https://github.com/shang-jui/react-personalworks/blob/master/reactpersonal-Google.gif)
 - ### 使用Firebase實現FB及Google第三方登入
 ## 會員頁面
-![image](https://github.com/shang-jui/react-personalworks/blob/master/reactpersonal-ShopLists.gif)
+![image](https://github.com/shang-jui/react-personalworks/blob/master/src/img/changeInfor.gif)
 - ### 載入使用者資訊
 - ### 顯示已付款訂單資訊
+- ### 可更新會員資料
